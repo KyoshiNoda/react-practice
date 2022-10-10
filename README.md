@@ -3,4 +3,4 @@
 ### Current Projects
 - Users signup
 - tailwind
-- Pros and Cons list
+- Pros and Cons lists
