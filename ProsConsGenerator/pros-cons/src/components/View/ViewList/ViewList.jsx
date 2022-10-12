@@ -3,7 +3,7 @@ import './ViewList.css';
 const ViewList = props =>{
     return(
         <div>
-            ViewList
+            <p className ="text-red-900">ViewList</p>
         </div>
     );
 };
