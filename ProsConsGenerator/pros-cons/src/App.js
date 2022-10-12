@@ -6,7 +6,6 @@ import View from './components/View/View';
 function App() {
   return (
     <div>
-      testing added to macbook github
       <View/>
       <Create/>
     </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import './ViewGroup.css';
 const ViewGroup = props =>{
     return(
-        <div>
+        <div className='text-blue-900'>
             View Group
         </div>
     );
