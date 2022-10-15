@@ -18,10 +18,10 @@ function App() {
 
 
   return (
-    <>
+    <div className='flex-column flex-end'>
       <Form onInput={formHandler} />
       <List items={list} />
-    </>
+    </div>
   );
 }
 
