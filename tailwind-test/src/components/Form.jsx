@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Container from './Container';
-import Button from './Button';
 const Form = (props) => {
 
     const [item, setItem] = useState();
@@ -34,7 +32,7 @@ const Form = (props) => {
                 </div>
                 <div className='flex justify-center'>
                     <button className = "bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"type = "submit">Submit</button>
-                    
+
                     <button className = "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"type = "button">Clear</button>
                 </div>
             </form>

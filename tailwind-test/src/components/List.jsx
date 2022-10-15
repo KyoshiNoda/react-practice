@@ -1,6 +1,4 @@
 import React from 'react';
-import Button from './Button';
-import Container from './Container';
 const List = (props) => {
 
 
