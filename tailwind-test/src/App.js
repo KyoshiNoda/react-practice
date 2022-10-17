@@ -27,10 +27,10 @@ function App() {
     return;
   };
   return (
-    <div className='flex-column flex-end'>
+    <>
       <Form onInput={formHandler} onDelete = {deleteHandler} />
       <List items={list} />
-    </div>
+    </>
   );
 }
 
