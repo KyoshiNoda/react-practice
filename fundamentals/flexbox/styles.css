@@ -1,0 +1,31 @@
+.container{
+  background-color: #d5bdaf;
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+  width: 1000px;
+  justify-content: space-evenly;
+
+}
+.one{
+  background-color:blue;
+  height: 200px;
+  width: 200px;
+}
+.two{
+  background-color: purple;
+  height: 200px;
+  width: 200px;
+}
+
+.three{
+  background-color: brown;
+  height: 200px;
+  width: 200px;
+}
+
+.four{
+  background-color: pink;
+  height: 200px;
+  width: 200px;
+}
