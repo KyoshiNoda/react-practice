@@ -17,8 +17,10 @@ function App() {
   }
   return (
     <>
+    <div className = "flex-column align-middle">
       <AddUser addUser ={addUserHandler}/>
       <UsersList users = {list}/>
+    </div>
     </>
   );
 }
