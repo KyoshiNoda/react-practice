@@ -9,9 +9,7 @@ function App() {
   const formHandler = (input) => {
     if (list.length === 10){
       console.log(list);
-      setList([]);
       alert("too much!");
-      console.log(list);
       return;
     }
     setList((previousList) => {
@@ -21,14 +19,10 @@ function App() {
       ]
     })
   };
-  
-  const deleteHandler = () =>{
-    setList([]);
-    return;
-  };
+
   return (
     <div className='flex-column flex-end'>
-      <Form onInput={formHandler} onDelete = {deleteHandler} />
+      <Form onInput={formHandler}/>
       <List items={list} />
     </div>
   );
