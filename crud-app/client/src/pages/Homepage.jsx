@@ -1,6 +1,17 @@
-import React from "react";
-
+import React, {useState} from "react";
 function Homepage() {
+  const [name,setName] = useState();
+  const [review ,setReview] = useState();
+
+  const movieNameHandler = (event) =>{
+    setName(event.target.value);
+    console.log(name);
+  };
+  const reviewHandler = (event) => {
+    setReview(event.target.value);
+    console.log(review);
+  };
+
   return (
     <div className="flex flex-col justify-center h-screen w-screen bg-gradient-to-r from-cyan-500 to-blue-500">
       <div className="flex justify-center">
@@ -11,13 +22,13 @@ function Homepage() {
           <div>
             <label>Movie Name:</label>
             <div>
-              <input type="text" name="movieName" />
+              <input type="text" name="movieName" onChange={movieNameHandler}/>
             </div>
           </div>
           <div>
             <label>Review: </label>
             <div>
-              <input type="text" name="review" />
+              <input type="text" name="review" onChange={reviewHandler}/>
             </div>
           </div>
         </div>
