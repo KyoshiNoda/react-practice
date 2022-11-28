@@ -1,11 +1,25 @@
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container{
   background-color: #d5bdaf;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 500px;
   width: 1000px;
   justify-content: space-evenly;
+  align-items: center;
 
+}
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size:x-large;
+  font-weight: bold;
 }
 .one{
   background-color:blue;
