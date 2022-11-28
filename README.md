@@ -4,3 +4,4 @@
 - Users signup
 - tailwind
 - Pros and Cons lists
+- CRUD app (react,tailwindcss,expressJS/NodeJS, mySQL)
