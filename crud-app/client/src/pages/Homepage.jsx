@@ -1,19 +1,24 @@
-import React, {useState,useEffect} from "react";
-import Axios from 'axios';
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 
 function Homepage() {
-  const [name,setName] = useState();
-  const [review ,setReview] = useState();
+  const [name, setName] = useState();
+  const [review, setReview] = useState();
 
-  const movieNameHandler = (event) =>{
+  const movieNameHandler = (event) => {
     setName(event.target.value);
-    console.log(name);
   };
   const reviewHandler = (event) => {
     setReview(event.target.value);
-    console.log(review);
   };
-
+  const submitHandler = () => {
+    Axios.post("http://localhost:3001/api/insert", {
+      movieName: name,
+      movieReview: review,
+    }).then(()=>{
+      alert("successful insert");
+    })
+  };
   return (
     <div className="flex flex-col justify-center h-screen w-screen bg-gradient-to-r from-cyan-500 to-blue-500">
       <div className="flex justify-center">
@@ -24,18 +29,19 @@ function Homepage() {
           <div>
             <label>Movie Name:</label>
             <div>
-              <input type="text" name="movieName" onChange={movieNameHandler}/>
+              <input type="text" name="movieName" onChange={movieNameHandler} />
             </div>
           </div>
           <div>
             <label>Review: </label>
             <div>
-              <input type="text" name="review" onChange={reviewHandler}/>
+              <input type="text" name="review" onChange={reviewHandler} />
             </div>
           </div>
         </div>
         <div>
           <button
+            onClick={submitHandler}
             type="button"
             className=" h-20 w-36 text-white bg-gradient-to-r from-green-500 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2"
           >

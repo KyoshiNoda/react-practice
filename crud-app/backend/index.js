@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const mysql = require('mysql');
 
 const db = mysql.createPool({
@@ -9,12 +11,17 @@ const db = mysql.createPool({
   database: 'crud-app'
 });
 
-app.get("/", (req,res)=>{
-  const command1 = "INSERT INTO movie_reviews (name,review) VALUES ('black panther','decent movie... could work on plot a little better');";
-  db.query(command1,(err,result) =>{
-    res.send("movie added!");
-  });
-  res.send("nodemon is running");
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.post('api/insert', (res,req) =>{
+  const movieName = req.body.movieName;
+  const movieReview = req.body.movieReview;
+  const insert = "INSERT INTO movie_reviews (name,review) VALUES (?,?);";
+  db.query(insert,[movieName,movieReview],(err,result)=>{
+    console.log(err);
+  })
 });
 
 app.listen(3001,(req,res)=>{
