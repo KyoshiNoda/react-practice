@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-
 function Homepage() {
-  const [name, setName] = useState();
-  const [review, setReview] = useState();
-
-  const movieNameHandler = (event) => {
-    setName(event.target.value);
-  };
-  const reviewHandler = (event) => {
-    setReview(event.target.value);
-  };
+  const [movieName, setMovieName] = useState("");
+  const [review, setReview] = useState("");
   const submitHandler = () => {
     Axios.post("http://localhost:3001/api/insert", {
-      movieName: name,
+      movieName: movieName,
       movieReview: review,
-    }).then(()=>{
+    }).then(() => {
       alert("successful insert");
-    })
+    });
   };
+  const movieNameHandler = (event) =>{
+    setMovieName(event.target.value);
+  };
+  const movieReviewHandler = (event) =>{
+    setReview(event.target.value);
+  };
+
   return (
     <div className="flex flex-col justify-center h-screen w-screen bg-gradient-to-r from-cyan-500 to-blue-500">
       <div className="flex justify-center">
@@ -35,7 +34,7 @@ function Homepage() {
           <div>
             <label>Review: </label>
             <div>
-              <input type="text" name="review" onChange={reviewHandler} />
+              <input type="text" name="review" onChange={movieReviewHandler} />
             </div>
           </div>
         </div>
