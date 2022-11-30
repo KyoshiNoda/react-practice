@@ -54,11 +54,13 @@ function Homepage() {
             Submit
           </button>
 
-          <div className="bg-white h-96 w-96">
+          <div className="bg-white h-96 w-96 rounded flex items-center">
+            <ol>
             {movieList.map((value) =>{
-              return (<h1 key = {value.id}>{value.name} ... {value.review}</h1>);
+              return (<li key = {value.id}>- {value.name} ... {value.review}</li>);
             }
             )}
+            </ol>
           </div>
         </div>
       </div>
