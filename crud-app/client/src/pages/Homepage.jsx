@@ -53,6 +53,13 @@ function Homepage() {
           >
             Submit
           </button>
+
+          <div className="bg-white h-96 w-96">
+            {movieList.map((value) =>{
+              return (<h1 key = {value.id}>{value.name} ... {value.review}</h1>);
+            }
+            )}
+          </div>
         </div>
       </div>
     </div>
