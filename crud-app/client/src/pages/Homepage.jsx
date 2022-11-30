@@ -3,6 +3,13 @@ import Axios from "axios";
 function Homepage() {
   const [movieName, setMovieName] = useState("");
   const [review, setReview] = useState("");
+  const [movieList, setMovieList] = useState([]);
+  useEffect(()=>{
+    Axios.get("http://localhost:3001/api/get").then((response) =>{
+      setMovieList(response.data);
+    });
+  },[]);
+
   const submitHandler = () => {
     Axios.post("http://localhost:3001/api/insert", {
       movieName: movieName,
