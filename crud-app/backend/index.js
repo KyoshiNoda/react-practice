@@ -21,6 +21,7 @@ app.get('/api/get',(req,res) =>{
     res.send(result);
   });
 });
+
 app.post("/api/insert", (req, res) => {
   const name = req.body.movieName;
   const review = req.body.movieReview;
@@ -29,6 +30,7 @@ app.post("/api/insert", (req, res) => {
     console.log(result);
   });
 });
+
 app.listen(3001, () => {
   console.log("running on port 3001");
 });
