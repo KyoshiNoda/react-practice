@@ -30,7 +30,6 @@ app.post("/api/insert", (req, res) => {
     console.log(result);
   });
 });
-
 app.listen(3001, () => {
   console.log("running on port 3001");
 });
