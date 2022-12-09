@@ -10,32 +10,31 @@ function Form(props) {
       movieReview: review,
     });
     props.addMovie(movieName, review);
+
   };
-  const movieNameHandler = (event) => {
-    setMovieName(event.target.value);
-  };
-  const movieReviewHandler = (event) => {
-    setReview(event.target.value);
-  };
+  const movieNameHandler = (event) => { setMovieName(event.target.value); };
+  const movieReviewHandler = (event) => { setReview(event.target.value);  };
 
   return (
     <>
-      <div>
-        <label>Movie Name</label>
+      <div className="my-8">
+        <label className="text-white font-bold">Movie Name</label>
         <div>
           <input type="text" name="movieName" onChange={movieNameHandler} />
         </div>
 
-        <label>Review </label>
+        <label className="text-white font-bold">Review </label>
         <div>
           <input type="text" name="review" onChange={movieReviewHandler} />
         </div>
       </div>
-      <button onClick={submitHandler} type="button"
-        className=" h-20 w-36 text-white bg-gradient-to-r from-green-500 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2"
+
+      <div className="flex justify-center">
+        <button onClick={submitHandler} type="button" className=" h-16 w-32 text-white bg-gradient-to-r from-green-500 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2"
         >
-          Submit
+            Submit
         </button>
+      </div>
     </>
   );
 }
