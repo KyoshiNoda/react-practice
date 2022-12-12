@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/api/get',(req,res) =>{
-  const select = "SELECT * FROM movie_reviews";
-  db.query(select,(err,result) =>{
+  const sqlSelect = "SELECT * FROM movie_reviews";
+  db.query(sqlSelect,(err,result) =>{
     res.send(result);
   });
 });
@@ -25,9 +25,19 @@ app.get('/api/get',(req,res) =>{
 app.post("/api/insert", (req, res) => {
   const name = req.body.movieName;
   const review = req.body.movieReview;
-  const insert ="INSERT INTO movie_reviews (name, review) VALUES (?,?)";
-  db.query(insert, [name, review], (err, result) => {
+  const sqlInsert ="INSERT INTO movie_reviews (name, review) VALUES (?,?)";
+  db.query(sqlInsert, [name, review], (err, result) => {
     console.log(result);
+  });
+});
+
+app.delete('/api/delete',(req,res)=>{
+  const name = req.body.movieName;
+  const sqlDelete = "DELETE FROM movie_reviews WHERE movieName = ?";
+  db.query(sqlDelete,name,(err,result)=>{
+    if(err){
+      console.log(err); 
+    }
   });
 });
 app.listen(3001, () => {

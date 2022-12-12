@@ -1,8 +1,9 @@
 import React from 'react'
+import Axios from 'axios';
 
 function MovieItem(props) {
   const deleteHandler = () =>{
-    console.log("deleted!");
+    Axios.delete(`http://localhost:3000/api/delete/${props.movieName}`);
   };
   const updateHandler = () =>{
     console.log("updated!");
