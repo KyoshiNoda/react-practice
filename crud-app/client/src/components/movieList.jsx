@@ -1,13 +1,6 @@
-import React,{useState,useEffect} from 'react'
-import Axios from "axios";
+import React from 'react';  
 import MovieItem from './MovieItem';
 function MovieList(props) {
-    const [movieList, setMovieList] = useState([]);
-    useEffect(()=>{
-        Axios.get("http://localhost:3001/api/get").then((response) =>{
-            setMovieList(response.data);
-        });
-    });
     return (
         <div>
             {props.addList.map((item)=>{
