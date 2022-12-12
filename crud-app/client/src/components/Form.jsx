@@ -10,7 +10,6 @@ function Form(props) {
       movieReview: review,
     });
     props.addMovie(movieName, review);
-
   };
   const movieNameHandler = (event) => { setMovieName(event.target.value); };
   const movieReviewHandler = (event) => { setReview(event.target.value);  };
