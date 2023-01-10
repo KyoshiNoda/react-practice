@@ -28,8 +28,17 @@ app.get('/api/get',(req,res) =>{
 });
 
 app.get('/api/get/:movieName',(req,res) =>{
-  const param = req.params;
-  res.send(param);
+  const name = req.params.movieName;
+  const sqlSearch = "SELECT * FROM `movie_reviews` WHERE `name` = ?";
+  db.query(sqlSearch,name,(err,result) =>{
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(result);
+    }
+  })
+  res.send(name);
 })
 
 app.post("/api/insert", (req, res) => {
@@ -50,9 +59,6 @@ app.delete('/api/delete/:movieName',(req,res)=>{
     }
   });
 });
-app.get('/api/dylan',(req,res) =>{
-  res.send("hello dylan sucks")
-})
 app.listen(3001, () => {
   console.log("running on port 3001");
 });
