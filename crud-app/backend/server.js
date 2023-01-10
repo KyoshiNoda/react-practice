@@ -31,14 +31,8 @@ app.get('/api/get/:movieName',(req,res) =>{
   const name = req.params.movieName;
   const sqlSearch = "SELECT * FROM `movie_reviews` WHERE `name` = ?";
   db.query(sqlSearch,name,(err,result) =>{
-    if(err){
-      console.log(err);
-    }
-    else{
-      console.log(result);
-    }
-  })
-  res.send(name);
+    res.send(result);
+  });
 })
 
 app.post("/api/insert", (req, res) => {

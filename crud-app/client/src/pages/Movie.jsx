@@ -3,7 +3,7 @@ import Axios from "axios";
 import Background from "../components/Background";
 function Movie() {
   const [movie, setMovie] = useState();
-
+  const [existingMovie, setExistingMovie] = useState(false);
   const movieHandler = (event) => {
     setMovie(event.target.value);
   };
@@ -11,11 +11,14 @@ function Movie() {
     event.preventDefault();
     Axios.get(`http://localhost:3001/api/get/${movie}`)
       .then((res) => {
-        console.log(res);
+        if (res.data.length > 0) {
+          setExistingMovie(true);
+        }
       })
       .catch((err) => {
         console.log(err);
       });
+    setExistingMovie(false);
   };
   return (
     <Background>
@@ -43,6 +46,11 @@ function Movie() {
                 Submit
               </button>
             </form>
+            {existingMovie ? (
+              <p>movie does exist!</p>
+            ) : (
+              <p>Movie doesn't exist</p>
+            )}
           </div>
         </div>
       </div>
