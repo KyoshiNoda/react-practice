@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req,res) =>{
   res.send("Hello");
-})
+});
 
 
 app.get('/api/get',(req,res) =>{
@@ -26,6 +26,11 @@ app.get('/api/get',(req,res) =>{
     res.send(result);
   });
 });
+
+app.get('/api/get/:movieName',(req,res) =>{
+  const param = req.params;
+  res.send(param);
+})
 
 app.post("/api/insert", (req, res) => {
   const name = req.body.movieName;
