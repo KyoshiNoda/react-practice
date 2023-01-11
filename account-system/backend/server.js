@@ -7,4 +7,8 @@ app.listen(3001,()=>{
 
 app.get('/',(req,res) =>{
     res.send("hello this is working with nodemon");
-})
+});
+
+app.get('/api/:name',(req,res) =>{
+    res.send(req.params.name);
+});
