@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Test from "./pages/Test";
 function App() {
-
   return (
-    <div className=' bg-slate-500'>
-      hello kyoshi
-    </div>
-  )
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/test" element={<Test />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
