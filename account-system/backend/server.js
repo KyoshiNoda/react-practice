@@ -35,12 +35,14 @@ app.post('/api/newUser',(req,res) =>{
     const email = req.body.userEmail;
     const password = req.body.userPassword;
     const apiKey = req.body.userApiKey;
-    const steamURL = req.body.steamURL;
+    const steamURL = req.body.userSteamURL;
 
-    const sqlInsert = `INSERT INTO accounts (email,password,steamURL,apiKEY)
+    const sqlInsert = `INSERT INTO accounts (email,password,steamURL,apiKey)
     VALUES (?,?,?,?);`;
 
     db.query(sqlInsert,[email,password,steamURL,apiKey], (err,result) =>{
-        console.log(result);
+       if(result === undefined){
+        console.log("didn't load");
+       }
     });
 });

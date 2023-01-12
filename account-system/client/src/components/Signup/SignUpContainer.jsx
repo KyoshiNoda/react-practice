@@ -3,14 +3,6 @@ import SignUpForm from "./SignUpForm";
 import Axios from "axios";
 function SignUpContainer() {
   const userHandler = (user) => {
-    // Axios.get("http://localhost:3001/api/db")
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    console.log(user);
     Axios.post("http://localhost:3001/api/newUser", user)
       .then((res) => {
         console.log(res);
