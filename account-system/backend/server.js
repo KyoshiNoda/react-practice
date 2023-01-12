@@ -27,22 +27,33 @@ app.get('/api/db',(req,res) =>{
         res.send(result);
     })
 })
-app.get('/api/:name',(req,res) =>{
-    res.send(req.params.name);
-});
 
 app.post('/api/newUser',(req,res) =>{
     const email = req.body.userEmail;
     const password = req.body.userPassword;
     const apiKey = req.body.userApiKey;
     const steamURL = req.body.userSteamURL;
-
     const sqlInsert = `INSERT INTO accounts (email,password,steamURL,apiKey)
     VALUES (?,?,?,?);`;
-
     db.query(sqlInsert,[email,password,steamURL,apiKey], (err,result) =>{
        if(result === undefined){
         console.log("didn't load");
        }
+    });
+});
+
+app.post('/api/checkUser',(req,res) =>{
+    const email = req.body.userEmail;
+    const password = req.body.userPassword;
+    const sqlCheck = "SELECT * FROM `account-system`.accounts WHERE email = ? AND password = ?;";
+    db.query(sqlCheck,[email,password],(err,result) =>{
+        if(result.length > 0){
+            res.send("you have an account");
+            console.log(result);
+        }
+        else{
+            res.send("account missing");
+            console.log(result);
+        }
     });
 });
