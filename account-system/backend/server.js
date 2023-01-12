@@ -32,5 +32,15 @@ app.get('/api/:name',(req,res) =>{
 });
 
 app.post('/api/newUser',(req,res) =>{
-    console.log(req);
+    const email = req.body.userEmail;
+    const password = req.body.userPassword;
+    const apiKey = req.body.userApiKey;
+    const steamURL = req.body.steamURL;
+
+    const sqlInsert = `INSERT INTO accounts (email,password,steamURL,apiKEY)
+    VALUES (?,?,?,?);`;
+
+    db.query(sqlInsert,[email,password,steamURL,apiKey], (err,result) =>{
+        console.log(result);
+    });
 });

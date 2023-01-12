@@ -3,20 +3,21 @@ import SignUpForm from "./SignUpForm";
 import Axios from "axios";
 function SignUpContainer() {
   const userHandler = (user) => {
-    Axios.get("http://localhost:3001/api/db")
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    // Axios.post("http://localhost:3001/api/newUser", user)
+    // Axios.get("http://localhost:3001/api/db")
     //   .then((res) => {
     //     console.log(res);
     //   })
     //   .catch((err) => {
     //     console.log(err);
     //   });
+    console.log(user);
+    Axios.post("http://localhost:3001/api/newUser", user)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
