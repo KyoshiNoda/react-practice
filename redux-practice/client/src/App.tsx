@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import './App.css'
 
 function App() {
-  return(
-    <div className = 'bg-red-900 flex justify-center text-white'>
-      hello we are checking if this is working
+  const [count, setCount] = useState(0)
+
+  return (
+    <div className='flex justify-center bg-slate-400'>
+      hi
     </div>
   )
 }
