@@ -5,3 +5,5 @@
 - tailwind
 - Pros and Cons lists
 - CRUD app (react,tailwindcss,expressJS/NodeJS, mySQL)
+- Backend with test accounts
+- Redux 
