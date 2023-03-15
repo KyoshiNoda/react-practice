@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import Add from "./components/Add";
+import List from "./components/List";
 
 function App() {
   return(
-    <div className='flex bg-slate-400 justify-center'>
-      hi
+    <div>
+      <Add/>
+      <List/>
     </div>
   )
 }
